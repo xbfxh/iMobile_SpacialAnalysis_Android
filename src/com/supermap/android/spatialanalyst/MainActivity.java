@@ -303,12 +303,13 @@ public class MainActivity extends Activity {
 		{			
 			
 			String digitStr = bufferRadiusText.getText().toString();
-			if(digitStr.length()>=1 && digitStr.length()<=bufferRadiusText.getMaxHeight()){
-			  bufferRadius = Integer.valueOf(bufferRadiusText.getText().toString()); 
-			  
-			}
-			if(digitStr.length() ==bufferRadiusText.getMaxHeight()){
-				showInfo("设置半径达到最大值");
+			if (digitStr.length() >= 1) {
+				int buf = Integer.valueOf(bufferRadiusText.getText().toString());
+				if (buf <= 1000) {
+					bufferRadius = buf;
+				} else {
+					showInfo("设置半径达到最大值 1000");
+				}
 			}
 		}
 
